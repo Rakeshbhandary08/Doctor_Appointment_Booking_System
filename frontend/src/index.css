@@ -1,1 +1,16 @@
-@import "tailwindcss"
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #5f6fff;
+  --font-outfit: "Outfit", sans-serif;
+}
+
+.active hr {
+  @apply block;
+}
+
+
+::-webkit-scrollbar{
+  @apply hidden
+}
