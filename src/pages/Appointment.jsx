@@ -177,7 +177,7 @@ const Appointment = () => {
               })}
           </div>
           <div className='flex justify-center sm:justify-normal mt-3 mb-10 '>
-          <button className="flex gap-1 items-center bg-primary  px-6 py-2 text-white rounded-full mt-7 transition-transform hover:scale-105 duration-500 transform-gpu">
+          <button className="flex gap-1 items-center bg-primary  px-6 py-2 text-white rounded-full mt-7 transition-transform hover:scale-102 duration-500 transform-gpu">
             Book an Appointment <MousePointerClick className="w-6"/>
           </button>
 
