@@ -1,5 +1,8 @@
 import React from "react";
 import { assets } from "../assets/assets";
+import { UserStar } from 'lucide-react';
+import { Waypoints } from 'lucide-react';
+import { ListCheck } from 'lucide-react';
 
 const About = () => {
   return (
@@ -42,15 +45,15 @@ const About = () => {
         </div>
         <div className="flex flex-col md:flex-row ">
           <div className="border  border-gray-300 px-10 md:px-16 py-8 md:py-16 flex flex-col text-[15px] hover:bg-primary hover:text-white transition-all duration-500 text-gray-600 cursor-pointer gap-3">
-            <p className="ttext-md font-bold">EFFICIENCY:</p>
+            <p className="ttext-md font-bold tracking-wider flex items-center gap-1"> <ListCheck/> EFFICIENCY:</p>
             <p className="text-sm">Streamlined appointment scheduling that fits into your busy lifestyle.</p>
           </div> 
           <div className="border  border-gray-300 px-10 md:px-16 py-8 md:py-16 flex flex-col text-[15px] hover:bg-primary hover:text-white transition-all duration-500 text-gray-600 cursor-pointer gap-3">
-            <p className=" font-bold">CONVENIENCE:</p>
+            <p className=" font-bold tracking-wide flex gap-1"> <Waypoints/> CONVENIENCE:</p>
             <p className="text-sm">Access to a network of trusted healthcare professionals in your are</p>
           </div>
           <div className="border border-gray-300 px-10 md:px-16 py-8 md:py-16 flex flex-col text-[15px] hover:bg-primary hover:text-white transition-all duration-500 text-gray-600 cursor-pointer gap-3">
-            <p className=" font-bold">PERSONALIZATION:</p>
+            <p className="flex items-center gap-1 font-bold tracking-wide"> <UserStar/> PERSONALIZATION:</p>
             <p className="text-sm">Tailored recommendations and reminders to help you stay on top of your health.</p>
           </div>
         </div>

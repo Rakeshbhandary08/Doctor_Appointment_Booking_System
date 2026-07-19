@@ -18,8 +18,8 @@ const Footer = () => {
                 <p className='text-xl font-medium mb-3 md:mb-5'>COMPANY</p>
                 <ul className='flex flex-col text-gray-600 gap-2'>
                     <li onClick={()=>{navigate("/");scroll(0,0)}}  className='cursor-pointer'>Home</li>
-                    <li onClick={()=>navigate("/about")} className='cursor-pointer'>About us</li>
-                    <li onClick={()=>navigate("/contact")} className='cursor-pointer'>Contact us</li>
+                    <li onClick={()=>{navigate("/about");scroll(0,0)}} className='cursor-pointer'>About us</li>
+                    <li onClick={()=>{navigate("/contact");scroll(0,0)}} className='cursor-pointer'>Contact us</li>
                     <li className='cursor-pointer'>Privacy policy</li>
                 </ul>
             </div>
@@ -28,7 +28,7 @@ const Footer = () => {
             <div className=''>
                 <p className='text-xl font-medium mb-3 md:mb-5'>GET IN TOUCH</p>
                 <ul className='flex flex-col text-gray-600 gap-2'>
-                    <li>+91-8595234500</li>
+                    <li>+91-1234567890</li>
                     <li>health@prescripto.com</li>
                 </ul>
             
