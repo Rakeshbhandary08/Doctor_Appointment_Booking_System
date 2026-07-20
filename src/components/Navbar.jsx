@@ -8,6 +8,14 @@ const Navbar = () => {
     
     const [showMenu,setShowMenu]=useState(false);
     const [token,setToken]=useState(true);
+    const [profileFix,setProfileFix]=useState(false);
+
+    //create a function
+    function handleProfileClick(){
+        if(window.innerWidth < 768){  //smaller screen
+           setProfileFix(!profileFix)
+        }
+    }
 
   return (
     <div className='flex items-center justify-between text-sm py-4 mb-5 border-b border-b-gray-400'>
@@ -35,10 +43,10 @@ const Navbar = () => {
         <div className='flex items-center gap-4'>
             {
                 token ? 
-                <div className=' flex items-center gap-4 cursor-pointer group relative'>
+                <div className=' flex items-center gap-4 cursor-pointer group relative ' onClick={handleProfileClick}>
                     <img src={assets.newMe} alt="" className='w-8 rounded-full'></img>
-                    <img src={assets.dropdown_icon} alt="" className='w-2.5  group-hover:rotate-180 transition-transform duration-250'></img>
-                    <div className='absolute top-0 right-0 pt-14 text-base font-medium text-gray-600 z-20 hidden group-hover:block'>
+                    <img src={assets.dropdown_icon} alt="" className={`w-2.5  md:group-hover:rotate-180 ${profileFix ? "rotate-180" : ""} transition-transform duration-250`}></img>
+                    <div className={`absolute top-0 right-0 pt-14 text-base font-medium text-gray-600 z-20 ${profileFix ? 'block':'hidden'} md:group-hover:block`}>
                         <div className=' min-w-48 text-left bg-stone-100 p-4 flex flex-col gap-4 rounded'>
                             <p onClick={()=>{navigate("/my-profile")}} className='hover:text-black transition-all'>My Profile</p>
                             <p onClick={()=>{navigate("/my-appointments")}} className='hover:text-black transition-all'>My Appointment</p>

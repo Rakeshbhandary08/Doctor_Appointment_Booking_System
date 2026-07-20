@@ -6,7 +6,7 @@ const TopDoctors = () => {
     const navigate=useNavigate();
   return (
     <div className="  flex flex-col items-center gap-4 my-16 text-gray-900 md:mx-10">
-      <h1 className="text-3xl font-medium">Top Doctors to Book:</h1>
+      <h1 className="text-3xl font-medium">Top Doctors to Book</h1>
       <p className="text-sm sm:w-1/3 text-center">
         Simply browse through our extensive list of trusted doctors.
       </p>
@@ -30,7 +30,7 @@ const TopDoctors = () => {
           )
         })}
       </div>
-      <button className="bg-blue-50 text-gray-600 px-12 py-3 rounded-full mt-12 font-medium hover:scale-104 transition-transform duration-500 ease-out transform-gpu">more</button>
+      <button onClick={()=>{navigate("/doctors");scroll(0,0)}} className="bg-blue-50 text-gray-600 px-12 py-3 rounded-full mt-12 font-medium hover:scale-104 hover:bg-blue-200 transition-all duration-500 ease-out transform-gpu cursor-pointer">more</button>
     </div>
   );
 };
