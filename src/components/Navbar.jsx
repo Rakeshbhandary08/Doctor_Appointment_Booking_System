@@ -9,6 +9,7 @@ const Navbar = () => {
     const [showMenu,setShowMenu]=useState(false);
     const [token,setToken]=useState(true);
     const [profileFix,setProfileFix]=useState(false);
+    
 
     //create a function
     function handleProfileClick(){
@@ -43,7 +44,7 @@ const Navbar = () => {
         <div className='flex items-center gap-4'>
             {
                 token ? 
-                <div className=' flex items-center gap-4 cursor-pointer group relative ' onClick={handleProfileClick}>
+                <div className=' flex items-center gap-3 cursor-pointer group relative ' onClick={handleProfileClick}>
                     <img src={assets.newMe} alt="" className='w-8 rounded-full'></img>
                     <img src={assets.dropdown_icon} alt="" className={`w-2.5  md:group-hover:rotate-180 ${profileFix ? "rotate-180" : ""} transition-transform duration-250`}></img>
                     <div className={`absolute top-0 right-0 pt-14 text-base font-medium text-gray-600 z-20 ${profileFix ? 'block':'hidden'} md:group-hover:block`}>
@@ -56,9 +57,29 @@ const Navbar = () => {
                 </div> 
                 : <button onClick={()=>navigate("/login")} className='text-white bg-primary px-7 py-3 rounded-full hidden md:block text-[15px] cursor-pointer font-medium'>Create Account</button>
             }
+            {/* --------------- Mobile Menu   ---------------------- */}
+          
+            <img className='md:hidden w-6 ml-1 cursor-pointer ' src={assets.menu_icon} onClick={()=>setShowMenu(!showMenu)} ></img>
+           <div className={`md:hidden fixed w-full overflow-hidden bg-white  right-0 bottom-0 top-0  z-20 transition-transform duration-300 ease-in-out ${showMenu ? 'translate-x-0' : "translate-x-full"} `}>
+               <div className='flex justify-between items-center bg-white px-4 py-4 border border-b border-gray-300'>
+                 <img src={assets.logo} className='w-40'></img>
+                 <img onClick={()=>setShowMenu(!showMenu)} src={assets.cross_icon} className='w-7 cursor-pointer'/>
+               </div>
+               <ul className='flex flex-col items-center gap-3 mt-5 text-lg font-medium '>
+                <NavLink  to="/" onClick={()=>setShowMenu(!showMenu)}><p className="px-4 py-2 rounded inline-block">Home</p></NavLink>
+                <NavLink  to="/doctors" onClick={()=>setShowMenu(!showMenu)}><p className="px-4 py-2 rounded inline-block">All Doctors</p></NavLink>
+                <NavLink  to="/about" onClick={()=>setShowMenu(!showMenu)}><p className="px-4 py-2 rounded inline-block"> About</p></NavLink>
+                <NavLink  to="/contact" onClick={()=>setShowMenu(!showMenu)}><p className="px-4 py-2 rounded inline-block">Contact</p></NavLink>
+               </ul>
+            </div>
+            
         </div>
     </div>
   )
 }
 
 export default Navbar;
+
+
+
+
