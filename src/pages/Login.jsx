@@ -11,8 +11,8 @@ const Login = () => {
   }
 
   return (
-    <form className=' min-h-[80vh] flex items-center'>
-        <div className='flex flex-col  items-start gap-3 m-auto  p-8 min-w-[340px] sm:min-w-96 border border-zinc-300 rounded-xl text-zinc-600 text-sm shadow-lg '>
+    <form className=' min-h-[80vh] flex items-center justify-center  '>
+        <div className='flex flex-col  items-start gap-3 m-auto  p-8 min-w-[310px]  sm:min-w-96 border border-zinc-300 rounded-xl text-zinc-600 text-sm shadow-lg '>
           <p className='text-2xl font-semibold'>{state === "Sign Up" ? "Create Account" :"Login"}</p>
           <p>Please {state === "Sign Up" ? "sign up" :"log in"} to book appointment</p>
           
@@ -28,7 +28,7 @@ const Login = () => {
             <p>Password</p>
             <input className='border border-zinc-300 p-2 mt-1 w-full rounded' type="password" onChange={(e)=>setPassword(e.target.value)} value={password} required/>
           </div>
-          <button className='bg-primary cursor-pointer text-white w-full py-2 font-medium rounded-md'>{state === "Sign Up" ? "Create Account" : "Login"}</button>
+          <button className='bg-primary cursor-pointer text-white w-full py-[10px] font-medium rounded-md mt-3'>{state === "Sign Up" ? "Create Account" : "Login"}</button>
           {
             state === "Sign Up" ?
              <p>Already have an account? <span  onClick={()=>setState("Login")} className='text-primary underline underline-offset-2 cursor-pointer font-medium'>Login here</span></p>:
