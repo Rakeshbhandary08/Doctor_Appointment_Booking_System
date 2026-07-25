@@ -29,7 +29,7 @@ const About = () => {
             ongoing care, Prescripto is here to support you every step of the
             way.
           </p>
-          <b className="text-gray-800">Our Vision</b>
+          <b className="text-gray-800 text-xl mt-1">Our Vision</b>
           <p>
             Our vision at Prescripto is to create a seamless healthcare
             experience for every user. We aim to bridge the gap between patients
