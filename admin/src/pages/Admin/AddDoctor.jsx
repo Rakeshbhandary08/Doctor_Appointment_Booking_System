@@ -3,6 +3,10 @@ import { assets } from '../../assets/assets'
 import {AdminContext} from "../../context/AdminContext"
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { Eye } from "lucide-react";
+import { EyeOff } from "lucide-react";
+
+
 
 const AddDoctor = () => {
 
@@ -17,6 +21,8 @@ const AddDoctor = () => {
   const [degree,setDegree]=useState("");
   const [address1,setAddress1]=useState("");
   const [address2,setAddress2]=useState("");
+
+  const [eyeShow,setEyeShow]=useState(false)
 
   const {backendUrl,aToken}=useContext(AdminContext);
 
@@ -126,7 +132,11 @@ const AddDoctor = () => {
 
             <div  className=' flex-1 flex flex-col gap-1'>
               <p>Password</p>
-              <input onChange={(e)=>setPassword(e.target.value)} value={password} className='border rounded px-3 py-2' type="password" placeholder='Password' required/>
+              <div className='relative'>
+              <input onChange={(e)=>setPassword(e.target.value)} value={password} className='w-full border rounded px-3 py-2' type={eyeShow ? "text" : "password"} placeholder='Password' required/>
+               {eyeShow ?<EyeOff onClick={()=>setEyeShow(!eyeShow)} className='absolute right-3 -translate-y-1/2 top-1/2 opacity-75 w-5 cursor-pointer' /> : <Eye onClick={()=>setEyeShow(!eyeShow)} className='absolute right-3 -translate-y-1/2 top-1/2 opacity-75 w-5 cursor-pointer'/>}
+              </div>
+              
             </div>
 
             <div className=' flex-1 flex flex-col gap-1'>
