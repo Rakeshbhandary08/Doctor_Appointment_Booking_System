@@ -6,7 +6,7 @@
  import doctorModel from "../models/doctorModel.js"
  import appointmentModel from "../models/appointmentModel.js"
  import razorpay from "razorpay"
-import { Await } from "react-router-dom"
+
 
  //API TO REGISTER USER
  const registerUser=async (req,res)=>{
