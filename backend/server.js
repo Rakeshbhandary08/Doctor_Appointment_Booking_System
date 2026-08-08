@@ -19,17 +19,20 @@ connectCloudinary();
 
 //Middlewares
 app.use(express.json())
+app.use(express.urlencoded({ extended: true }));
 
 
 const corsOptions={
   origin:["http://localhost:5174","http://localhost:5173"],
   methods:['GET','POST','PUT','PATCH','DELETE'],
+  exposedHeaders: ['x-rtb-fingerprint-id', 'request-id'],
   credentials:true
 }
 
  app.use(cors(corsOptions))  //integration of backend & frontend
 
 
+app.get("/",(req,res)=>res.send("Hello world"))
 
 //api endpoints for admin Panel
 app.use("/api/admin",adminRouter)   //localhost:4000/api/admin

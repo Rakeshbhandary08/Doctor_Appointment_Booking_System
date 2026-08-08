@@ -6,18 +6,24 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { Eye } from "lucide-react";
 import { EyeOff } from "lucide-react";
+import { DoctorContext } from "../context/DoctorContext";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+    const navigate=useNavigate()
   const [state, setState] = useState("Admin");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const [showEye, setShowEye] = useState(false);
 
-  const { setAToken, backendUrl } = useContext(AdminContext); //setAToken=""
+  const { setAToken, backendUrl ,getDashData:getAdminDashData} = useContext(AdminContext); //setAToken=""
+  const {setDToken,dToken,getDashData:getDoctorDashData}=useContext(DoctorContext);
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
+
+  
 
     try {
       if (state === "Admin") {
@@ -29,10 +35,30 @@ const Login = () => {
           localStorage.setItem("aToken", data.message);
           console.log(data.message);
           setAToken(data.message);
+          navigate("/admin-dashboard")
+          getAdminDashDat()
         } else {
           toast.error(data?.message || "Something went wrong");
         }
       } else {
+         //HIT DOCTOR LOGIN API
+         try{
+           const {data}=await axios.post(backendUrl + "/api/doctor/login",{email,password})
+
+           if(data.success){
+             localStorage.setItem('dToken',data.token)
+             toast.success(data.message)
+             setDToken(data.token)
+             console.log(data.token)
+             navigate("/doctor-dashboard")
+             getDoctorDashDat()
+             
+           }
+         }
+         catch(error){
+           console.log(error)
+           toast.error(data?.message || "Something went wrong");
+         }
       }
     } catch (error) {
       console.log(error);
@@ -46,8 +72,8 @@ const Login = () => {
       className="min-h-[80vh]  flex items-center"
     >
       <div className="flex flex-col gap-3 m-auto items-start min-w-[340px] p-8 sm:min-w-96 text-[#5E5E5E] rounded-xl border border-gray-400/30 text-sm sm:text-base shadow-lg">
-        <p className="text-2xl font-semibold m-auto text-primary flex items-center gap-1">
-          <span> {state}</span> Login <UserLock />
+        <p className="text-2xl font-semibold m-auto flex items-center gap-1">
+          <span className="text-primary"> {state}</span> Login <UserLock />
         </p>
         <div className=" w-full ">
           <p className="font-medium mb-1">Email</p>
